@@ -4,7 +4,7 @@
 	box-sizing: border-box;
 	background-color: #000;
 }
-div.profile, form.editProfile, form.editPost, form.newPost {
+div.profile, form.editProfile, form.editPost, form.newPost, div.news, div.calendar, div.music {
 	display: none;
 }
 div.post {
