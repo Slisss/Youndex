@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Profile from './Profile';
 import Login from './Login';
 import Navigation from './Navigation';
+import News from './News';
+import Calendar from './Calendar';
+import Music from './Music';
 
 function Body() {
 	let [userOnPage, setUserOnPage] = useState('');
@@ -29,17 +32,11 @@ function Body() {
 				CheckDict={CheckDict}
 			/>
 			{loggedIn ?
-				<div>
+				<div className='loginInfo'>
 					logged in as {userOnPage}
 					<button id='profile' onClick={() => {ShowProfile(userOnPage)}}>Show Your Profile</button>
 				</div>
 			: ''}
-			<Profile
-				userOnPage={userOnPage}
-				profileOwner={profileOwner}
-				dict={dictionary}
-				CheckDict={CheckDict}
-			/>
 			{loggedIn ?
 				<Navigation
 					userOnPage={userOnPage}
@@ -49,6 +46,21 @@ function Body() {
 					CheckDict={CheckDict}
 				/>
 			: ''}
+			<Profile
+				userOnPage={userOnPage}
+				profileOwner={profileOwner}
+				dict={dictionary}
+				CheckDict={CheckDict}
+			/>
+			<News
+				userOnPage={userOnPage}
+				setProfileOwner={setProfileOwner}
+				ShowProfile={ShowProfile}
+				dict={dictionary}
+				CheckDict={CheckDict}
+			/>
+			<Calendar />
+			<Music />
 		</div>
 	);
 }

@@ -53,7 +53,8 @@ function Profile({userOnPage, profileOwner, dict, CheckDict}) {
 	return (
 		<div className='profile'>
 			<div className='pfp'></div>
-			<div>{ownerData.username}</div>
+			<div id='title'>{ownerData.username}</div>
+			<div>bio:</div>
 			<div>{ownerData.bio}</div>
 			<form className='editProfile'>
 				<input id='bio'></input>

@@ -15,10 +15,15 @@ function News({ userOnPage, setProfileOwner, ShowProfile, dict, CheckDict }) {
 		})
 	}, [postCount]);
 	
+	function OpenForm() {
+		document.querySelector('form.newPost').style.display = 'block';
+	}
+	
 	return (
 		<div className='news'>
 			{allPosts.map((p) =>
 				<Post
+					key={p.id}
 					post={p}
 					userOnPage={userOnPage}
 					postCount={postCount}
@@ -36,6 +41,7 @@ function News({ userOnPage, setProfileOwner, ShowProfile, dict, CheckDict }) {
 				dict={dict}
 				CheckDict={CheckDict}
 			/>
+			<div className='newPost' onClick={OpenForm}></div>
 		</div>
 	);
 }

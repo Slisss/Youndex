@@ -93,17 +93,24 @@ function Post({post, userOnPage, postCount, setPostCount, setProfileOwner, ShowP
 		<div id={'p' + post.id} className='post'>
 			<div className='pfp'></div>
 			<div className='postData'>
-				<div id='author' onClick={() => {ShowProfile(post.author)}}>author: {post.author}</div>
-				<div>desc: {post.desc}</div>
-				<div>date: {post.date}</div>
-				<div>likes: {post.likes}</div>
-				<button onClick={() => Like(1)}>Like{l ? 'd' : ''}</button>
-				<button onClick={() => Like(-1)}>Dislike{d ? 'd' : ''}</button>
+				<p>{post.desc}</p>
+				<p>posted on: {post.date}</p>
+				<p id='author' onClick={() => {ShowProfile(post.author)}}>by: {post.author}</p>
+				<div className='likes'>
+					<button onClick={() => Like(1)}>Like{l ? 'd' : ''}</button>
+					{post.likes}
+					<button onClick={() => Like(-1)}>Dislike{d ? 'd' : ''}</button>
+				</div>
+				{userOnPage == post.author && 
+					<div className='postControls'>
+						<button onClick={OpenEdit}>Edit</button>
+						<button onClick={Delete}>Delete</button>
+					</div>
+				}
 			</div>
-			{userOnPage == post.author && <button onClick={OpenEdit}>Edit</button>}
-			{userOnPage == post.author && <button onClick={Delete}>Delete</button>}
 			<form className='editPost'>
-				<textarea id='desc'></textarea>
+				<div id='title'>Edit post:</div>
+				<textarea id='desc' required></textarea>
 				<div className='controls'>
 					<button onClick={ConfirmEdit}>Edit</button>
 					<button onClick={CancelEdit}>Cancel</button>

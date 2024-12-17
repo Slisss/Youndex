@@ -9,9 +9,6 @@ function NewPost({userOnPage, postCount, setPostCount, dict, CheckDict}) {
 		.then(res => setNewPostId(res.id__max+1))
 	}, [postCount])
 	
-	function OpenForm() {
-		document.querySelector('form.newPost').style.display = 'block';
-	}
 	function CloseForm() {
 		document.querySelector('form.newPost').style.display = 'none';
 		document.querySelector('form.newPost > #newPost').value = '';
@@ -37,17 +34,14 @@ function NewPost({userOnPage, postCount, setPostCount, dict, CheckDict}) {
 	}
 	
 	return (
-		<div>
-			<form className='newPost'>
-				<h1>{userOnPage + ' says:'}</h1>
-				<textarea id='newPost' required></textarea>
-				<div className='controls'>
-					<button onClick={Tweet}>Tweet</button>
-					<button onClick={CloseForm}>Discard</button>
-				</div>
-			</form>
-			<div className='newPost' onClick={OpenForm}>+</div>
-		</div>
+		<form className='newPost'>
+			<div id='title'>{userOnPage} says:</div>
+			<textarea id='newPost' required></textarea>
+			<div className='controls'>
+				<button onClick={Tweet}>Tweet</button>
+				<button onClick={CloseForm}>Discard</button>
+			</div>
+		</form>
 	);
 }
 

@@ -44,14 +44,12 @@ function Login({setUserOnPage, setLoggedIn, dict, CheckDict}) {
 		setLoggedIn(1);
 	}
 	return (
-		<div>
-			<form className='loginReg'>
-				<input id='username'></input>
-				<input id='password'></input>
-				<button onClick={TryLogin}>login</button>
-				<button onClick={TryRegister}>register</button>
-			</form>
-		</div>
+		<form className='loginReg'>
+			<input id='username'></input>
+			<input id='password'></input>
+			<button onClick={TryLogin}>login</button>
+			<button onClick={TryRegister}>register</button>
+		</form>
 	);
 }
 
